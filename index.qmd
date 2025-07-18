@@ -1,0 +1,57 @@
+---
+title: Création d'un Programme de Fidélité pour les Acheteurs de Cartes Cadeaux “Gift and Grow”
+
+author: "Maxime Renac"
+institute: "Le Petit Ballon"
+
+execute:
+  echo: false
+  warning: false
+  message: false
+
+format:
+  html: 
+    slide-number: c/t
+    
+---
+
+
+```{python}
+import plotly.express as px
+import os
+from google.cloud import bigquery
+from dotenv import load_dotenv
+import pandas as pd
+from matplotlib import pyplot as plt
+from datetime import datetime
+import seaborn as sns
+from prophet.plot import plot_plotly, plot_components_plotly
+from prophet import Prophet
+import numpy as np
+```
+
+# Introduction
+
+```{python}
+# Création d'un jeu de données fictif
+np.random.seed(42)  # pour reproductibilité
+mois = pd.date_range(start="2024-01-01", periods=12, freq="M")
+ventes = np.random.randint(1000, 5000, size=12)
+
+df = pd.DataFrame({
+    "Mois": mois,
+    "Ventes": ventes
+})
+
+# Création du graphique line Plotly
+fig = px.line(df, x="Mois", y="Ventes", title="Évolution mensuelle des ventes",
+              markers=True, line_shape='spline')  # 'spline' = courbe lissée
+
+fig.update_layout(
+    xaxis_title="Mois",
+    yaxis_title="Ventes (€)",
+    template="plotly_white"
+)
+
+fig.show()
+```
