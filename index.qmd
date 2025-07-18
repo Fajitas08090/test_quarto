@@ -4,6 +4,8 @@ title: Création d'un Programme de Fidélité pour les Acheteurs de Cartes Cadea
 author: "Maxime Renac"
 institute: "Le Petit Ballon"
 
+toc: true
+
 execute:
   echo: false
   warning: false
@@ -12,7 +14,7 @@ execute:
 format:
   html: 
     slide-number: c/t
-    
+    embed-resources: true    
 ---
 
 
